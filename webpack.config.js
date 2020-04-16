@@ -30,6 +30,14 @@ module.exports = webpackEnv => {
           ]
         },
         {
+          test: /\.(scss|sass)$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+          ]
+        },
+        {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
           use: {
             loader: 'url-loader',
