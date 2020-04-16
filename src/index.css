@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Robot Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('roboto-regular'),
+    url('./assets/fonts/roboto-v20-latin-regular.woff2') format('woff2'),
+    url('./assets/fonts/roboto-v20-latin-regular.woff') format('woff')
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +17,7 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Robot Regular';
   padding-top: 3rem;
 }
 h1 {
