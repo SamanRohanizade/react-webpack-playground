@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from './components/Header';
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <div className="container">
+      <Header underlined>
+        Hello World!
+      </Header>
+    </div>
   );
 }
 

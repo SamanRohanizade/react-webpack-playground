@@ -1,0 +1,27 @@
+%header_lines {
+  content: '';
+  position: absolute;
+  border: 1px solid currentColor;
+}
+
+.header {
+  font-family: inherit;
+  font-size: 3rem;
+  text-align: center;
+  position: relative;
+
+  &__underlined {
+    &::after {
+      @extend %header_lines;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    &::before {
+      @extend %header_lines;
+      left: 15%;
+      right: 15%;
+      bottom: -.25rem;
+    }
+  }
+}
