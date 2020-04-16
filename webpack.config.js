@@ -15,6 +15,7 @@ module.exports = webpackEnv => {
       filename: isEnvDevelopment ?
         '[name].[hash].js' :
         '[name].[chunkhash].js',
+      chunkFilename: isEnvDevelopment ? '[name].chunk.js' : '[name].[chunkhash].chunk.js'
     },
     module: {
       rules: [
