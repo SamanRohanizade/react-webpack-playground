@@ -15,6 +15,15 @@ module.exports = webpackEnv => {
         '[name].[hash].js' :
         '[name].[chunkhash].js',
     },
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          use: 'babel-loader',
+          exclude: /node_modules/
+        }
+      ]
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: require.resolve('./src/index.html'),

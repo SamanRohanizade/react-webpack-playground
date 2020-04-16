@@ -5,13 +5,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf build && cross-env NODE_ENV=production webpack --env.production"
+    "build": "rimraf build && cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
     "html-webpack-plugin": "^4.2.0",
     "rimraf": "^3.0.2",
