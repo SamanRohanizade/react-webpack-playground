@@ -24,16 +24,48 @@ module.exports = webpackEnv => {
         },
         {
           test: /\.css$/,
+          exclude: /\.module\.css$/,
           use: [
             'style-loader',
             'css-loader'
           ]
         },
         {
-          test: /\.(scss|sass)$/,
+          test: /\.module\.css$/,
           use: [
             'style-loader',
-            'css-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true
+              }
+            }
+          ]
+        },
+        {
+          test: /\.(scss|sass)$/,
+          exclude: /\.module\.(scss|sass)$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true
+              }
+            },
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.module\.(scss|sass)$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true
+              }
+            },
             'sass-loader'
           ]
         },
