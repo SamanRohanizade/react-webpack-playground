@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = webpackEnv => {
   let isEnvDevelopment = !!webpackEnv && webpackEnv.development === true;
@@ -11,8 +12,14 @@ module.exports = webpackEnv => {
     output: {
       path: path.join(__dirname, 'build'),
       filename: isEnvDevelopment ?
-                '[name].[hash].js' :
-                '[name].[chunkhash].js',
-    }
+        '[name].[hash].js' :
+        '[name].[chunkhash].js',
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: require.resolve('./src/index.html'),
+        inject: true
+      })
+    ]
   }
 }
