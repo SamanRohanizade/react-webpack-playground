@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = webpackEnv => {
   let isEnvDevelopment = !!webpackEnv && webpackEnv.development === true;
@@ -92,6 +93,18 @@ module.exports = webpackEnv => {
         template: require.resolve('./src/index.html'),
         inject: true
       })
-    ]
+    ],
+    optimization: {
+      moduleIds: 'hashed',
+      splitChunks: {
+        chunks: 'all'
+      },
+      // for long term caching
+      runtimeChunk: 'single',
+      minimize: !isEnvDevelopment,
+      minimizer: [
+        new TerserPlugin()
+      ]
+    }
   }
 }
