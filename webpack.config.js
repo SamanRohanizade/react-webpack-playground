@@ -47,12 +47,7 @@ module.exports = webpackEnv => {
           exclude: /\.module\.(scss|sass)$/,
           use: [
             'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true
-              }
-            },
+            'css-loader',
             'sass-loader'
           ]
         },
