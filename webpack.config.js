@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = webpackEnv => {
   let isEnvDevelopment = !!webpackEnv && webpackEnv.development === true;
@@ -94,7 +95,10 @@ module.exports = webpackEnv => {
       new HtmlWebpackPlugin({
         template: require.resolve('./src/index.html'),
         inject: true
-      })
+      }),
+      new BundleAnalyzerPlugin(isEnvDevelopment ? {
+        analyzerMode: 'disabled'
+      } : undefined)
     ],
     optimization: {
       moduleIds: 'hashed',
