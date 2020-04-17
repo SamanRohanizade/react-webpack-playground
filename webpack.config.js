@@ -69,7 +69,17 @@ module.exports = webpackEnv => {
           ]
         },
         {
-          test: /\.(png|jpg|svg|gif)$/,
+          test: /\.svg$/,
+          use: {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10 * 1024,
+              noquotes: true,
+            },
+          }
+        },
+        {
+          test: /\.(png|jpg|gif)$/,
           use: [
             {
               loader: 'url-loader',
